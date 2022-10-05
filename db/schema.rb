@@ -68,10 +68,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_160128) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "type"
+    t.integer "user_type", default: 0
     t.string "name"
     t.string "last_name"
-    t.string "document"
+    t.integer "document"
     t.string "password_digest"
     t.float "intake", default: 0.0
     t.integer "document_type", default: 0
