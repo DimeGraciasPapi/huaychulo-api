@@ -32,11 +32,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_160128) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_dishes_on_category_id"
-    t.index ["name"], name: "index_dishes_on_name", unique: true
   end
 
   create_table "order_details", force: :cascade do |t|
-    t.bigint "dish_id", null: false
+    t.bigint "dish_id"
     t.bigint "order_id", null: false
     t.integer "quantity"
     t.float "sub_total", default: 0.0
@@ -48,8 +47,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_160128) do
 
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "table_id", null: false
+    t.bigint "table_id"
     t.float "total", default: 0.0
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["table_id"], name: "index_orders_on_table_id"
@@ -57,24 +57,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_160128) do
   end
 
   create_table "tables", force: :cascade do |t|
-    t.integer "pavilion"
+    t.string "pavilion"
     t.string "code"
     t.integer "chairs"
     t.string "image"
-    t.boolean "available"
+    t.boolean "available", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_tables_on_code", unique: true
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "type"
+    t.integer "user_type", default: 0
     t.string "name"
     t.string "last_name"
-    t.string "document"
+    t.integer "document"
     t.string "password_digest"
     t.float "intake", default: 0.0
-    t.integer "document_type"
+    t.integer "document_type", default: 0
     t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
