@@ -9,5 +9,6 @@ class CreateTables < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_index :tables, :code, unique: true
   end
 end
