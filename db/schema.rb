@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_05_154555) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_05_160128) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +33,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_154555) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_dishes_on_category_id"
     t.index ["name"], name: "index_dishes_on_name", unique: true
+  end
+
+  create_table "order_details", force: :cascade do |t|
+    t.bigint "dish_id", null: false
+    t.bigint "order_id", null: false
+    t.integer "quantity"
+    t.float "sub_total", default: 0.0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dish_id"], name: "index_order_details_on_dish_id"
+    t.index ["order_id"], name: "index_order_details_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -72,6 +83,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_154555) do
   end
 
   add_foreign_key "dishes", "categories"
+  add_foreign_key "order_details", "dishes"
+  add_foreign_key "order_details", "orders"
   add_foreign_key "orders", "tables"
   add_foreign_key "orders", "users"
 end
