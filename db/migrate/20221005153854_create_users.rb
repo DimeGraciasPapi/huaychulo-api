@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :document
       t.string :password_digest
       t.float :intake, default: 0
-      t.integer :document_type
+      t.integer :document_type, default: 0
       t.string :token
 
       t.timestamps
