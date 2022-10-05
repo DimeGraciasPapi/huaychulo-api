@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_160128) do
   end
 
   create_table "order_details", force: :cascade do |t|
-    t.bigint "dish_id", null: false
+    t.bigint "dish_id"
     t.bigint "order_id", null: false
     t.integer "quantity"
     t.float "sub_total", default: 0.0
@@ -49,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_160128) do
     t.bigint "user_id", null: false
     t.bigint "table_id", null: false
     t.float "total", default: 0.0
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["table_id"], name: "index_orders_on_table_id"
@@ -73,7 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_160128) do
     t.string "document"
     t.string "password_digest"
     t.float "intake", default: 0.0
-    t.integer "document_type"
+    t.integer "document_type", default: 0
     t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
