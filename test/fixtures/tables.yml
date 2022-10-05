@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pavilion: 1
+  code: MyString
+  chairs: 1
+  image: MyString
+  available: false
+
+two:
+  pavilion: 1
+  code: MyString
+  chairs: 1
+  image: MyString
+  available: false
