@@ -57,11 +57,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_160128) do
   end
 
   create_table "tables", force: :cascade do |t|
-    t.integer "pavilion"
+    t.string "pavilion"
     t.string "code"
     t.integer "chairs"
     t.string "image"
-    t.boolean "available"
+    t.boolean "available", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_tables_on_code", unique: true
