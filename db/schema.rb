@@ -32,7 +32,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_160128) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_dishes_on_category_id"
-    t.index ["name"], name: "index_dishes_on_name", unique: true
   end
 
   create_table "order_details", force: :cascade do |t|
