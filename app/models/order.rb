@@ -3,4 +3,5 @@ class Order < ApplicationRecord
   
   belongs_to :user
   belongs_to :table
+  has_many :order_details, dependent: :destroy
 end
