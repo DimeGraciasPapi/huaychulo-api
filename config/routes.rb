@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   post "/signup" => "users#create"
 
   # profile
-
   get "/profile" => "users#show"
   patch "/profile" => "users#update"
   delete "/profile" => "users#destroy"
@@ -15,4 +14,7 @@ Rails.application.routes.draw do
 
   # dishes
   resources :dishes, except: %i[ new edit ]
+
+  # tables
+  resources :tables, except: %i[ new edit show ]
 end
