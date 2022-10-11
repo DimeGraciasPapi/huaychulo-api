@@ -1,6 +1,24 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # sessions
+  post "/login" => "sessions#create"
+  delete "/logout" => "sessions#destroy"
+  post "/signup" => "users#create"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # profile
+  get "/profile" => "users#show"
+  patch "/profile" => "users#update"
+  delete "/profile" => "users#destroy"
+
+  # categories
+  resources :categories, except: %i[ show new edit ]
+
+  # dishes
+  resources :dishes, except: %i[ new edit ]
+
+  # tables
+  resources :tables, except: %i[ new edit show ]
+
+  # orders
+
+  resources :orders, except: %i[ new edit ]
 end

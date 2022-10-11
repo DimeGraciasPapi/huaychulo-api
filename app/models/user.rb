@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_secure_token
   has_secure_password
   has_many :orders, dependent: :destroy
+
+  def invalidate_token
+    update(token: nil)
+  end
 end
