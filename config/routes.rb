@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   delete "/logout" => "sessions#destroy"
 
   resources :categories, except: %i[ show new edit ]
+
+  resources :dishes, except: %i[ new edit ]
 end
