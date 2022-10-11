@@ -17,4 +17,8 @@ Rails.application.routes.draw do
 
   # tables
   resources :tables, except: %i[ new edit show ]
+
+  # orders
+
+  resources :orders, except: %i[ new edit ]
 end
