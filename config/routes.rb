@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   # orders
 
   resources :orders, except: %i[ new edit ]
+
+  root "dishes#index"
 end
