@@ -71,7 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_160128) do
     t.integer "user_type", default: 0
     t.string "name"
     t.string "last_name"
-    t.integer "document"
+    t.bigint "document"
     t.string "password_digest"
     t.float "intake", default: 0.0
     t.integer "document_type", default: 0
