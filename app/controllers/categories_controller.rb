@@ -4,7 +4,6 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all.sort_by{ |category| category[:id] }
-    @categories = @categories.map{ |category| category.as_json.merge(dishes: category.dishes) }
     render json: @categories
   end
 
