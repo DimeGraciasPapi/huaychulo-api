@@ -1,5 +1,6 @@
 class DishesController < ApplicationController
   skip_before_action :authorize, only: %i[ index show ]
+  skip_before_action :validate_admin_user, only: %i[ index show ]
   before_action :set_dish, only: %i[ update destroy show ]
   
   def index

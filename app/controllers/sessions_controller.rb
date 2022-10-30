@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :authorize, only: :create
-  skip_before_action :validate_admin_user, only: :destroy
+  skip_before_action :validate_admin_user, only: %i[ destroy create ]
   
   def create
     user = User.find_by(document: params[:document])
