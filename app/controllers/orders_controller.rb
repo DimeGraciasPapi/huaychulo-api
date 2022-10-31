@@ -32,7 +32,8 @@ class OrdersController < ApplicationController
 
           if order_detail.save
             record.push(true)
-            order_detail.dish.update(quantity: order_detail.dish.quantity - order_detail.quantity)
+            newQuantity = order_detail.dish.quantity - order_detail.quantity
+            order_detail.dish.update(quantity: newQuantity <= 0 ? 0 : newQuantity)
           else 
             record.push(false)
           end
