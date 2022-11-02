@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   skip_before_action :authorize, only: %i[ create ]
   skip_before_action :validate_admin_user, only: %i[ show update create destroy ]
 
+  def index
+    @users = User.all;
+    render json: @user.as_json(except: :password_digest)
+  end
+
   def create
     @user = User.new(user_params)
 

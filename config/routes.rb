@@ -22,5 +22,9 @@ Rails.application.routes.draw do
 
   resources :orders, except: %i[ new edit ]
 
+  # users
+
+  get "/users" => "users#index"
+
   root "dishes#index"
 end
