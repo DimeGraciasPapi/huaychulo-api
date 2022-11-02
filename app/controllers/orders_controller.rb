@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  skip_before_action :validate_admin_user, only: %i[ index show create ]
+  skip_before_action :validate_admin_user, only: %i[ index show create update ]
   before_action :set_order, only: %i[ show update destroy ]
 
   def index
