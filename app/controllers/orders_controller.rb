@@ -74,7 +74,7 @@ class OrdersController < ApplicationController
   private
 
   def merge_items(order)
-    details = order.order_details.map{ |detail| detail.as_json.merge(detail.dish) }
+    details = order.order_details.map{ |detail| detail.as_json.merge(dish: detail.dish) }
     order.as_json.merge(items: details)
   end
 
