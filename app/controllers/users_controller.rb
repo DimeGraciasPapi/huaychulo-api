@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all;
-    render json: @user.as_json(except: :password_digest)
+    render json: @users.map{ |user| user.as_json(:except: :password_digest) }
   end
 
   def create
