@@ -1,5 +1,5 @@
 class TablesController < ApplicationController
-  skip_before_action :validate_admin_user, only: %i[ index ]
+  skip_before_action :validate_admin_user, only: %i[ index update ]
   before_action :set_table, only: %i[ update destroy ]
 
   def index
